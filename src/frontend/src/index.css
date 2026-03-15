@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Deep Blue #1a2e4a → oklch(0.27 0.065 253) */
+    /* Green #2e7d32 → oklch(0.45 0.13 145) */
+
+    --background: 1 0 0;
+    --foreground: 0.18 0.04 253;
+
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.04 253;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.04 253;
+
+    /* Deep Blue primary */
+    --primary: 0.27 0.065 253;
+    --primary-foreground: 1 0 0;
+
+    /* Green accent */
+    --secondary: 0.45 0.13 145;
+    --secondary-foreground: 1 0 0;
+
+    --muted: 0.97 0.005 253;
+    --muted-foreground: 0.5 0.03 253;
+
+    --accent: 0.45 0.13 145;
+    --accent-foreground: 1 0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 1 0 0;
+
+    --border: 0.9 0.01 253;
+    --input: 0.9 0.01 253;
+    --ring: 0.27 0.065 253;
+
+    --radius: 0.5rem;
+
+    /* Brand tokens */
+    --deep-blue: 0.27 0.065 253;
+    --deep-blue-light: 0.35 0.055 253;
+    --green: 0.45 0.13 145;
+    --green-light: 0.6 0.12 145;
+
+    /* Section palette — professional blue tones */
+    --section-grey: 0.97 0.005 253;
+    /* Light steel blue */
+    --section-blue-1: 0.97 0.015 230;
+    /* Soft mid-blue */
+    --section-blue-2: 0.95 0.02 245;
+    /* Cool blue-white */
+    --section-blue-3: 0.98 0.008 250;
+    /* Muted navy tint */
+    --section-blue-4: 0.94 0.025 240;
+
+    /* Chart */
+    --chart-1: 0.27 0.065 253;
+    --chart-2: 0.45 0.13 145;
+    --chart-3: 0.6 0.08 200;
+    --chart-4: 0.7 0.12 90;
+    --chart-5: 0.55 0.15 30;
+
+    /* Sidebar */
+    --sidebar: 0.27 0.065 253;
+    --sidebar-foreground: 1 0 0;
+    --sidebar-primary: 0.45 0.13 145;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.35 0.055 253;
+    --sidebar-accent-foreground: 1 0 0;
+    --sidebar-border: 0.35 0.055 253;
+    --sidebar-ring: 0.45 0.13 145;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Bricolage Grotesque", "Inter", sans-serif;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero gradient pattern overlay */
+.hero-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='92' viewBox='0 0 80 92'%3E%3Cpath d='M40 0l40 23v46L40 92 0 69V23z' fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+/* Step connector line */
+.step-connector::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    oklch(var(--green)),
+    oklch(var(--green-light))
+  );
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .step-connector::after {
+    display: none;
+  }
+}
